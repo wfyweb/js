@@ -1,0 +1,106 @@
+<!doctype html>
+<!--
+
+  .--,       .--,
+ ( (  \.---./  ) )
+  '.__/o   o\__.'
+     {=    =}
+      >  -  <
+     /       \
+    //       \\
+   //|   .   |\\
+   "'\       /'"_.-~`'-.
+      \  _  /--'
+    ___)( )(___
+   (((__) (__)))
+
+   the valiant knights of programming who toil away.
+
+-->
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Handsome</title>
+		<link rel="icon" href="yuan/images/handsome1.ico" type="image/x-cio" />
+		<link rel="stylesheet" type="text/css" href="yuan/css/css-style.css" />
+ </head>
+ <body style="overflow: hidden;">
+	<div id="bodyPage">
+		<a href="yuan/home.html">
+			<img id="img" src="yuan/images/chrome.jpg" class="bg">
+		</a>
+	</div>
+	<div id="content">
+		<a href="yuan/home.html">
+			<h1 class="time">10:50</h1>
+			<div class="greeting">
+				<h2>Good
+					<span class="period">morning,</span>
+					<span class="name">远.</span>
+				</h2>
+			</div>
+			<div class="below">
+				<h2>Welcome to WEB WANG blog. </h2>
+			</div>
+		</a>
+	</div>
+	<!-- 图片自适应 -->
+	<script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+	<script type="text/javascript" src="yuan/js/fullplay.js"></script>
+	<script type="text/javascript">
+		$("#bodyPage").fullImages({
+		   ImgWidth: 1920,
+		   ImgHeight: 980,
+		   autoplay :  2000,
+		   fadeTime : 0
+
+		});
+	</script>
+	<!-- 时间 -->
+	<script type="text/javascript">
+		setInterval(play,1000);
+		play();
+		function play(){
+			var box = document.querySelector('.period');
+			var wrap = document.querySelector('.time');
+			var oImg = document.querySelector('#img');
+			var now = new Date();
+			var hour = now.getHours();
+			var minutes = now.getMinutes();
+			var seconds = now.getSeconds();
+			wrap.innerHTML = zero( hour )+':'+zero( minutes );
+			function zero( num ){
+				return num<10? '0'+num:num;
+			};
+			if( hour<12 && hour>5){
+				box.innerHTML='moring,';
+				oImg.src = 'yuan/images/chrome1.jpg';
+			}else if(hour<18){
+				box.innerHTML='afternoon,';
+				oImg.src = 'yuan/images/chrome2.jpg';
+			}else {
+				box.innerHTML='evening,';
+				oImg.src = 'yuan/images/chrome3.jpg';
+			}
+		}
+
+	</script>
+	<!-- 延迟跳转 -->
+	<script type="text/javascript">
+		var n = 6;
+		play();
+		function play(){
+			setInterval(function(){
+				n--;
+				if (n==0){
+					window.location.href="yuan/home.html";
+				}
+			},1000);
+		};
+	</script>
+ </body>
+</html>
